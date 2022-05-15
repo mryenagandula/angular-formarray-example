@@ -1,4 +1,4 @@
-# AngularFormarrayExample
+# Angular Formarray Example
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0.
 
@@ -6,22 +6,42 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### How to implement form array in angular
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Steps: 
 
-## Build
+- Create angular project with below command.
+	"ng new angular-formarray-example"
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- After successfully creation of angular app, change file directory to project-name.
+	"cd angular-formarray-example"
 
-## Running unit tests
+- Open project in vs code using "code ."
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Then run the project using "ng serve".
 
-## Running end-to-end tests
+- Open project in chrome using localhost:4200
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+- Open app component in vs code and remove the content which is created by angular cli while creating the app.
 
-## Further help
+- Add ReactiveFormsModule, FormsModule in app.module.ts
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Open app.component.ts , then add formbuilder as dependency in constuctor.
+
+- Create form variable above the constructor.
+
+- Create formInit method to intialize the form and call the method form either contructor or ngOninit.
+
+- And create form group using form builder and also added skills as formArray inside form group.
+
+- Create get method for getall the skills and return type must be formarray.
+
+- Add some dummy data in the form array by directly using formgroup or skills.push method.
+
+- Displaying form array in app.component.html to follow below options.
+
+  -`<form class="form" [formGroup]="form"></form>`
+
+  -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"></div></div></form>`
+
+  -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"><div *ngFor="let skill of skills.controls;let i=index" ><div [formGroupName]="i"><input type="checkbox" formControlName="checked" /> {{skill.get('name').value}}</div></div></div></div></form>`
