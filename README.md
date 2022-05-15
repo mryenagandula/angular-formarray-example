@@ -45,3 +45,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
   -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"></div></div></form>`
 
   -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"><div *ngFor="let skill of skills.controls;let i=index" ><div [formGroupName]="i"><input type="checkbox" formControlName="checked" /> {{skill.get('name').value}}</div></div></div></div></form>`
+  
+  
+  ### OUTPUT
+  
+  
+  ![image](https://user-images.githubusercontent.com/98155788/168487254-25c17ec3-6ffe-4fda-80e2-95ead1e0e49c.png)
+
