@@ -39,12 +39,32 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 - Add some dummy data in the form array by directly using formgroup or skills.push method.
 
 - Displaying form array in app.component.html to follow below options.
+ 
+```bash
+  <form class="form" [formGroup]="form">
+  </form>
+```
 
-  -`<form class="form" [formGroup]="form"></form>`
+```bash
+  <form class="form" [formGroup]="form">
+   <div class="container">
+      <div formArrayName="skills"></div>
+   </div>
+</form>
+```
+  
 
-  -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"></div></div></form>`
-
-  -`<form class="form" [formGroup]="form"><div class="container"><div formArrayName="skills"><div *ngFor="let skill of skills.controls;let i=index" ><div [formGroupName]="i"><input type="checkbox" formControlName="checked" /> {{skill.get('name').value}}</div></div></div></div></form>`
+```bash
+<form class="form" [formGroup]="form">
+   <div class="container">
+      <div formArrayName="skills">
+         <div *ngFor="let skill of skills.controls;let i=index" >
+            <div [formGroupName]="i"><input type="checkbox" formControlName="checked" /> {{skill.get('name').value}}</div>
+         </div>
+      </div>
+   </div>
+</form>
+```
   
   
   ### OUTPUT
